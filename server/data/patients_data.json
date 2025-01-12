@@ -1,0 +1,30 @@
+[
+    {
+        "patient_id": 1,
+        "heart_rate": 72,
+        "temperature": 37.0,
+        "blood_pressure": "120/80",
+        "timestamp": "2025-01-12T20:00:00"
+    },
+    {
+        "patient_id": 2,
+        "heart_rate": 85,
+        "temperature": 38.2,
+        "blood_pressure": "125/85",
+        "timestamp": "2025-01-12T20:30:00"
+    },
+    {
+        "patient_id": 1,
+        "heart_rate": 99,
+        "temperature": 37.3,
+        "blood_pressure": "113/81",
+        "timestamp": "2025-01-12 21:44:13.303416"
+    },
+    {
+        "patient_id": 1,
+        "heart_rate": 84,
+        "temperature": 37.8,
+        "blood_pressure": "121/82",
+        "timestamp": "2025-01-12 21:58:09.806368"
+    }
+]
