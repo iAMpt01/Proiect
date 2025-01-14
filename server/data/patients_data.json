@@ -2,29 +2,81 @@
     {
         "patient_id": 1,
         "heart_rate": 72,
-        "temperature": 37.0,
+        "oxygen_level": 98.5,
         "blood_pressure": "120/80",
+        "condition_detected": "Normal",
         "timestamp": "2025-01-12T20:00:00"
     },
     {
         "patient_id": 2,
         "heart_rate": 85,
-        "temperature": 38.2,
+        "oxygen_level": 96.0,
         "blood_pressure": "125/85",
+        "condition_detected": "Normal",
         "timestamp": "2025-01-12T20:30:00"
     },
     {
-        "patient_id": 1,
-        "heart_rate": 99,
-        "temperature": 37.3,
-        "blood_pressure": "113/81",
-        "timestamp": "2025-01-12 21:44:13.303416"
+        "patient_id": 3,
+        "heart_rate": 110,
+        "oxygen_level": 92.0,
+        "blood_pressure": "140/90",
+        "condition_detected": "Tachicardie",
+        "timestamp": "2025-01-12T21:00:00"
     },
     {
-        "patient_id": 1,
-        "heart_rate": 84,
-        "temperature": 37.8,
-        "blood_pressure": "121/82",
-        "timestamp": "2025-01-12 21:58:09.806368"
+        "patient_id": 4,
+        "heart_rate": 55,
+        "oxygen_level": 98.5,
+        "blood_pressure": "110/70",
+        "condition_detected": "Bradicardie",
+        "timestamp": "2025-01-12T21:15:00"
+    },
+    {
+        "patient_id": 5,
+        "heart_rate": 98,
+        "oxygen_level": 93.0,
+        "blood_pressure": "130/85",
+        "condition_detected": "Normal",
+        "timestamp": "2025-01-12T21:30:00"
+    },
+    {
+        "patient_id": 6,
+        "heart_rate": 120,
+        "oxygen_level": 88.0,
+        "blood_pressure": "145/95",
+        "condition_detected": "Hipertensiune",
+        "timestamp": "2025-01-12T21:45:00"
+    },
+    {
+        "patient_id": 7,
+        "heart_rate": 60,
+        "oxygen_level": 99.0,
+        "blood_pressure": "125/80",
+        "condition_detected": "Normal",
+        "timestamp": "2025-01-12T22:00:00"
+    },
+    {
+        "patient_id": 8,
+        "heart_rate": 80,
+        "oxygen_level": 94.0,
+        "blood_pressure": "115/75",
+        "condition_detected": "Normal",
+        "timestamp": "2025-01-12T22:15:00"
+    },
+    {
+        "patient_id": 9,
+        "heart_rate": 140,
+        "oxygen_level": 85.0,
+        "blood_pressure": "150/100",
+        "condition_detected": "Hipertensiune",
+        "timestamp": "2025-01-12T22:30:00"
+    },
+    {
+        "patient_id": 10,
+        "heart_rate": 90,
+        "oxygen_level": 95.0,
+        "blood_pressure": "120/80",
+        "condition_detected": "Normal",
+        "timestamp": "2025-01-12T22:45:00"
     }
 ]

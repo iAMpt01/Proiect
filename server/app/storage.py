@@ -1,26 +1,25 @@
 import json
 from typing import List
-from datetime import datetime
-from .models import PatientData
+from .models import HeartHealthData
 
-FILE_PATH = "data/patients_data.json"
+FILE_PATH = "data/heart_health_data.json"
 
-def save_data(data: PatientData):
+def save_data(data: HeartHealthData):
     try:
         with open(FILE_PATH, "r") as file:
-            patients_data = json.load(file)
+            health_data = json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
-        patients_data = []
+        health_data = []
 
-    patients_data.append(data.dict())
+    health_data.append(data.dict())
     
     with open(FILE_PATH, "w") as file:
-        json.dump(patients_data, file, default=str, indent=4)
+        json.dump(health_data, file, default=str, indent=4)
 
-def get_all_data() -> List[PatientData]:
+def get_all_data() -> List[HeartHealthData]:
     try:
         with open(FILE_PATH, "r") as file:
-            patients_data = json.load(file)
-            return [PatientData(**item) for item in patients_data]
+            health_data = json.load(file)
+            return [HeartHealthData(**item) for item in health_data]
     except (FileNotFoundError, json.JSONDecodeError):
         return []

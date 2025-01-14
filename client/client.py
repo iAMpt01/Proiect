@@ -1,47 +1,30 @@
+from flask import Flask, render_template, request, redirect
 import requests
-from rich.console import Console
-from rich.table import Table
+
+app = Flask(__name__)
 
 API_URL = "http://127.0.0.1:8000"
-console = Console()
 
-# Citește datele unui pacient
-def get_patient_data():
+# Pagina principală
+@app.route("/")
+def index():
+    # Preluăm datele de la backend
     response = requests.get(f"{API_URL}/data")
     if response.status_code == 200:
         data = response.json()
-        table = Table(title="Date Pacienți")
-        table.add_column("ID Pacient", style="cyan", justify="center")
-        table.add_column("Ritmul Cardiac", style="magenta", justify="center")
-        table.add_column("Temperatura", style="yellow", justify="center")
-        table.add_column("Tensiunea", style="green", justify="center")
-        table.add_column("Timestamp", style="white", justify="center")
-
-        for entry in data:
-            table.add_row(
-                str(entry["patient_id"]),
-                str(entry["heart_rate"]),
-                f'{entry["temperature"]:.1f}',
-                entry["blood_pressure"],
-                entry["timestamp"]
-            )
-        console.print(table)
     else:
-        console.print("[bold red]Eroare la citirea datelor.[/bold red]")
+        data = []
+    return render_template("index.html", data=data)
 
-# Simulează citirea de la senzor
-def simulate_sensor_data(patient_id: int):
-    response = requests.get(f"{API_URL}/sensor/{patient_id}/data")
-    if response.status_code == 200:
-        data = response.json()
-        console.print(f"[bold green]Datele pacientului cu ID {patient_id}:[/bold green]")
-        console.print(data)
-    else:
-        console.print("[bold red]Eroare la simularea datelor.[/bold red]")
+# Simulează datele pentru un pacient
+@app.route("/simulate", methods=["POST"])
+def simulate():
+    patient_id = request.form.get("patient_id")
+    if patient_id:
+        response = requests.get(f"{API_URL}/sensor/{patient_id}/data")
+        if response.status_code == 200:
+            return redirect("/")
+    return "Eroare la simulare", 400
 
-# Exemplu de utilizare
 if __name__ == "__main__":
-    console.print("[bold cyan]Simulăm datele pentru pacientul 1...[/bold cyan]")
-    simulate_sensor_data(1)
-    console.print("[bold cyan]Citim toate datele pacienților...[/bold cyan]")
-    get_patient_data()
+    app.run(debug=True)

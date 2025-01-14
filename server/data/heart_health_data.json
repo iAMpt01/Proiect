@@ -1,0 +1,29 @@
+[
+    {
+        "patient_id": 1,
+        "heart_rate": 107,
+        "oxygen_level": 88.7,
+        "blood_pressure": "128/112",
+        "ecg": null,
+        "timestamp": "2025-01-14 14:40:27.807939",
+        "condition_detected": "Tachicardie"
+    },
+    {
+        "patient_id": 2,
+        "heart_rate": 93,
+        "oxygen_level": 91.1,
+        "blood_pressure": "129/119",
+        "ecg": null,
+        "timestamp": "2025-01-14 14:40:55.901688",
+        "condition_detected": "Normal"
+    },
+    {
+        "patient_id": 3,
+        "heart_rate": 103,
+        "oxygen_level": 95.8,
+        "blood_pressure": "136/72",
+        "ecg": null,
+        "timestamp": "2025-01-14 14:48:44.148755",
+        "condition_detected": "Tachicardie"
+    }
+]

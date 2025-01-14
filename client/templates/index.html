@@ -1,61 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Pacienți</title>
+    <title>Managementul Sănătății Inimii</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        .alert {
+            color: white;
+            background-color: red;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        form {
-            margin-bottom: 20px;
+        .normal {
+            color: green;
         }
     </style>
 </head>
 <body>
-    <h1>Date Pacienți</h1>
-    <form action="/simulate" method="post">
-        <label for="patient_id">Introdu ID-ul pacientului pentru simulare:</label>
-        <input type="number" name="patient_id" id="patient_id" required>
-        <button type="submit">Simulează date</button>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>ID Pacient</th>
-                <th>Ritmul Cardiac</th>
-                <th>Temperatura</th>
-                <th>Tensiunea</th>
-                <th>Timestamp</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for entry in data %}
-            <tr>
-                <td>{{ entry.patient_id }}</td>
-                <td>{{ entry.heart_rate }}</td>
-                <td>{{ entry.temperature }}</td>
-                <td>{{ entry.blood_pressure }}</td>
-                <td>{{ entry.timestamp }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+    <h1>Managementul Sănătății Inimii</h1>
+
+    <h2>Date Pacienți</h2>
+    <table border="1">
+        <tr>
+            <th>ID Pacient</th>
+            <th>Puls</th>
+            <th>Nivel Oxigen</th>
+            <th>Presiune Arterială</th>
+            <th>Afecțiune Detectată</th>
+            <th>Timestamp</th>
+            <th>Semnal</th>
+        </tr>
+        {% for patient in data %}
+        <tr>
+            <td>{{ patient.patient_id }}</td>
+            <td>{{ patient.heart_rate }}</td>
+            <td>{{ patient.oxygen_level }}%</td>
+            <td>{{ patient.blood_pressure }}</td>
+            <td>{{ patient.condition_detected }}</td>
+            <td>{{ patient.timestamp }}</td>
+            <td>
+                {% if patient.condition_detected != "Normal" %}
+                    <span class="alert">{{ patient.condition_detected }}</span>
+                {% else %}
+                    <span class="normal">Stare normală</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
     </table>
+
+    <h2>Simulează Date pentru Pacient</h2>
+    <form action="/simulate" method="POST">
+        <label for="patient_id">ID Pacient:</label>
+        <input type="number" id="patient_id" name="patient_id" required>
+        <button type="submit">Simulează</button>
+    </form>
 </body>
 </html>
