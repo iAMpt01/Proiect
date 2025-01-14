@@ -25,5 +25,14 @@
         "ecg": null,
         "timestamp": "2025-01-14 14:48:44.148755",
         "condition_detected": "Tachicardie"
+    },
+    {
+        "patient_id": 6,
+        "heart_rate": 77,
+        "oxygen_level": 88.9,
+        "blood_pressure": "147/94",
+        "ecg": null,
+        "timestamp": "2025-01-14 20:21:41.958409",
+        "condition_detected": "Hipoxie"
     }
 ]
